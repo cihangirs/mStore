@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="OrderCell">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="93"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="93"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zC5-YW-nm4">
+                        <rect key="frame" x="25" y="17" width="59" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="59" id="eoK-dO-SvU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uF-bs-mDZ">
+                        <rect key="frame" x="25" y="55" width="60" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="wxV-bS-r53"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jse-pC-rFI">
+                        <rect key="frame" x="281" y="17" width="45" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVK-f1-Had">
+                        <rect key="frame" x="232" y="55" width="94" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="94" id="wf5-3o-9p5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.38653997130000001" green="0.57131159129999998" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="0uF-bs-mDZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="EtT-wz-XXh"/>
+                <constraint firstAttribute="trailing" secondItem="yVK-f1-Had" secondAttribute="trailing" constant="24" id="Ik4-bY-wI5"/>
+                <constraint firstItem="jse-pC-rFI" firstAttribute="centerY" secondItem="zC5-YW-nm4" secondAttribute="centerY" id="KJL-Yq-hIv"/>
+                <constraint firstItem="yVK-f1-Had" firstAttribute="centerY" secondItem="0uF-bs-mDZ" secondAttribute="centerY" id="OyZ-qI-wG1"/>
+                <constraint firstItem="zC5-YW-nm4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="17" id="g3r-lH-ubi"/>
+                <constraint firstAttribute="trailing" secondItem="jse-pC-rFI" secondAttribute="trailing" constant="24" id="hsi-a2-bNb"/>
+                <constraint firstItem="zC5-YW-nm4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="oaP-BQ-fXi"/>
+                <constraint firstAttribute="bottom" secondItem="0uF-bs-mDZ" secondAttribute="bottom" constant="17" id="xej-lK-SBN"/>
+            </constraints>
+            <size key="customSize" width="350" height="93"/>
+            <connections>
+                <outlet property="orderCount" destination="yVK-f1-Had" id="eAH-ho-V9a"/>
+                <outlet property="orderName" destination="jse-pC-rFI" id="syn-WA-1Tt"/>
+            </connections>
+            <point key="canvasLocation" x="252" y="299.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
