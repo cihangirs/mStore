@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSMutableArray *productArray;
 @property (nonatomic, strong) NSMutableArray *originalProductArray;
 @property (nonatomic, strong) ProductDetail *productDetail;
-@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+@property (nonatomic, assign) NSInteger selectedRow;
 
 @end
 
@@ -27,6 +27,8 @@
     [super viewDidLoad];
     
     self.title = @"Store";
+    
+    self.selectedRow = -1;
     
     [self.productCollectionView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellWithReuseIdentifier:@"PRODUCTCELL"];
     
@@ -48,13 +50,14 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PRODUCTCELL" forIndexPath:indexPath];
+    
     cell.delegate = self;
     
     [cell setProductModel:[self.productArray objectAtIndex:indexPath.row]];
     
     [cell.addRemoveButon setHidden:YES];
     
-    if (indexPath == self.selectedIndexPath)
+    if (indexPath.row == self.selectedRow)
     {
         [cell setProductDetailModel:self.productDetail];
     }
@@ -64,7 +67,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width, (indexPath == self.selectedIndexPath) ? 250 : 75);
+    //NSLog(@"indexPath: %@ \n selectedIndexPath: %@ \n", indexPath, self.selectedRow);
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width, (indexPath.row == self.selectedRow) ? 250 : 75);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -72,7 +76,7 @@
     [[StoreNetworkManager sharedManager] fetchProductDetailWithId:(int)indexPath.row withCallback:^(ProductDetailResponse *response) {
         self.productDetail = response.productDetail;
         
-        self.selectedIndexPath = indexPath;
+        self.selectedRow = indexPath.row;
         
         [collectionView reloadData];
     }];
@@ -93,7 +97,7 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    self.selectedIndexPath = nil;
+    self.selectedRow = -1;
     
     if (![searchText isEqualToString:@""])
     {
